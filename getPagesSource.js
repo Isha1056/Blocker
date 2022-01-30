@@ -58,8 +58,10 @@ function reqListener() {
         var x = getNodesThatContain(r[i]);
         //console.log(x);
         for( let j=0; j<r.length; j++) {
-            console.log(x[j]);
-            x[j].addClass("blurmytext");
+            if (typeof x[j] !== 'undefined'){
+                console.log(x[j]);
+                x[j].addClass("blurmytext");
+            }
         }
     }
 }
