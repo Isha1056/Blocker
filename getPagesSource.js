@@ -34,14 +34,30 @@ function DOMtoString(document_root) {
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify(json));
     xhr.addEventListener('load', reqListener);
-    console.log('xhr.responseText:', xhr.responseText);
-    console.log('xhr.status:', xhr.status);
     return html;
 }
 
+function getNodesThatContain(text) {
+    var textNodes = $(document).find(":not(iframe, script, style)")
+      .contents().filter( 
+          function() {
+           return this.nodeType == 3 
+             && this.textContent.indexOf(text) > -1;
+    });
+    
+    return textNodes.parent();
+};
+
 function reqListener() {
-    console.log('this.responseText:', this.responseText);
-    console.log('this.status:', this.status);
+    //console.log('this.responseText:', typeof(this.responseText));
+    //console.log('this.status:', this.status);
+    var r = JSON.parse(this.responseText)['response'];
+    //console.log(r['response']);
+
+    for( let i=0; i<r.length; i++) {
+        var x = getNodesThatContain(r[i]);
+        console.log(x);
+    }
 }
 
 chrome.runtime.sendMessage({

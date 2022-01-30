@@ -10,9 +10,15 @@
     "permissions": [
         "tabs", 
         "<all_urls>"
-    ], 
-    "host_permissions": [
-        "tabs", 
-        "<all_urls>"
-    ]
+    ],
+    "background":
+    {
+        "scripts": ["jquery-3.6.0.js", "popup.js"]
+    },
+    "content_scripts": [ {
+      "matches": ["<all_urls>"],
+      "css": [ "blur.css" ],
+      "js": [ "jquery-3.6.0.js" ]
+   } ],
+   "content_security_policy": "script-src 'self' https://ajax.googleapis.com; object-src 'self'"
   }
