@@ -38,7 +38,7 @@ function DOMtoString(document_root) {
 }
 
 function getNodesThatContain(text) {
-    var textNodes = $(document).find(":not(iframe, script, style)")
+    var textNodes = $(document).find(":not(iframe, script, style, noscript, title, object)")
       .contents().filter( 
           function() {
            return this.nodeType == 3 
@@ -56,7 +56,11 @@ function reqListener() {
 
     for( let i=0; i<r.length; i++) {
         var x = getNodesThatContain(r[i]);
-        console.log(x);
+        //console.log(x);
+        for( let j=0; j<r.length; j++) {
+            console.log(x[j]);
+            x[j].addClass("blurmytext");
+        }
     }
 }
 
