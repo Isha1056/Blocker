@@ -53,7 +53,6 @@ function reqListener() {
     //console.log('this.status:', this.status);
     var r = JSON.parse(this.responseText)['response'];
     //console.log(r['response']);
-
     for( let i=0; i<r.length; i++) {
         var x = getNodesThatContain(r[i]);
         //console.log(x);
