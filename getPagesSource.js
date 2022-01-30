@@ -60,7 +60,7 @@ function reqListener() {
         for( let j=0; j<r.length; j++) {
             if (typeof x[j] !== 'undefined'){
                 console.log(x[j]);
-                x[j].addClass("blurmytext");
+                $(x[j]).addClass("blurmytext");
             }
         }
     }
