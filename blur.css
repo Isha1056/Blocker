@@ -1,12 +1,13 @@
 .blurmytext{
     color: transparent !important;
-    text-shadow: 0 0 8px white !important;
-    background-color: darkslategrey !important;
+    text-shadow: 0 0 8px black !important;
+    background-color: lightgrey !important;
     display:block !important;
 
 }
 
 .blurmytext:hover {
     text-shadow:none !important;
-    color: gainsboro !important;
+    color: black !important;
+    background-color: none !important;
 }
